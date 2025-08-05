@@ -69,7 +69,7 @@ class KuulaTourBlock extends BlockBase {
     $form['tour_url'] = [
       '#type' => 'url',
       '#title' => $this->t('Kuula Tour Share URL'),
-      '#description' => $this->t('Enter the Kuula share URL (e.g., https://kuula.co/share/xyz). This will be automatically converted to an embed.'),
+      '#description' => $this->t('Enter the Kuula share URL (e.g., https://kuula.co/share/xyz or https://mackenzie-james-360.com/share/xyz). This will be automatically converted to an embed.'),
       '#default_value' => $config['tour_url'] ?? '',
       '#states' => [
         'visible' => [
@@ -185,15 +185,15 @@ class KuulaTourBlock extends BlockBase {
     
     if ($values['tour_input_method'] === 'url') {
       $tour_url = $values['tour_url'];
-      if (!empty($tour_url) && !preg_match('/kuula\.co/', $tour_url)) {
-        $form_state->setErrorByName('tour_url', $this->t('Please enter a valid Kuula URL (must contain kuula.co).'));
+      if (!empty($tour_url) && !preg_match('/(kuula\.co|mackenzie-james-360\.com)/', $tour_url)) {
+        $form_state->setErrorByName('tour_url', $this->t('Please enter a valid Kuula URL (kuula.co or mackenzie-james-360.com).'));
       }
     }
     
     if ($values['tour_input_method'] === 'embed') {
       $embed_code = $values['embed_code'];
-      if (!empty($embed_code) && !preg_match('/<iframe[^>]*kuula\.co[^>]*>/', $embed_code)) {
-        $form_state->setErrorByName('embed_code', $this->t('Please enter a valid Kuula embed code (must contain an iframe with kuula.co).'));
+      if (!empty($embed_code) && !preg_match('/<iframe[^>]*(kuula\.co|mackenzie-james-360\.com)[^>]*>/', $embed_code)) {
+        $form_state->setErrorByName('embed_code', $this->t('Please enter a valid Kuula embed code (must contain an iframe with kuula.co or mackenzie-james-360.com).'));
       }
     }
   }
