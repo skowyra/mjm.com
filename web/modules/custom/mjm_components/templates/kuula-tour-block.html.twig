@@ -1,0 +1,61 @@
+{#
+/**
+ * @file
+ * Template for Kuula Tour block.
+ *
+ * Available variables:
+ * - title: The tour title.
+ * - tour_url: The Kuula share URL.
+ * - embed_code: The Kuula embed code.
+ * - width: The tour width.
+ * - height: The tour height.
+ * - description: The tour description.
+ * - autoplay: Whether to autoplay the tour.
+ * - show_info: Whether to show info panel.
+ * - show_controls: Whether to show controls.
+ */
+#}
+
+<div class="kuula-tour-block" data-autoplay="{{ autoplay ? 'true' : 'false' }}" data-show-info="{{ show_info ? 'true' : 'false' }}" data-show-controls="{{ show_controls ? 'true' : 'false' }}">
+  {% if title %}
+    <h3 class="kuula-tour-block__title">{{ title }}</h3>
+  {% endif %}
+
+  <div class="kuula-tour-block__container" style="width: {{ width }}; height: {{ height }};">
+    {% if embed_code %}
+      {# Use provided embed code #}
+      <div class="kuula-tour-block__embed">
+        {{ embed_code|raw }}
+      </div>
+    {% elseif tour_url %}
+      {# Generate iframe from URL #}
+      <div class="kuula-tour-block__iframe-container">
+        <iframe 
+          class="kuula-tour-block__iframe"
+          src="{{ tour_url|replace({'/share/': '/embed/'}) }}{% if autoplay %}?autostart=true{% endif %}{% if not show_info %}{{ autoplay ? '&' : '?' }}info=false{% endif %}{% if not show_controls %}{{ (autoplay or not show_info) ? '&' : '?' }}controls=false{% endif %}"
+          width="100%" 
+          height="100%" 
+          frameborder="0" 
+          allowfullscreen
+          allow="vr; gyroscope; accelerometer">
+        </iframe>
+        <div class="kuula-tour-block__loading">
+          <div class="kuula-tour-block__spinner"></div>
+          <p>Loading Virtual Tour...</p>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+
+  {% if description %}
+    <div class="kuula-tour-block__description">
+      {{ description|nl2br }}
+    </div>
+  {% endif %}
+
+  <div class="kuula-tour-block__fullscreen-btn">
+    <button type="button" class="kuula-tour-block__fullscreen-toggle" title="Toggle Fullscreen">
+      <i class="fas fa-expand"></i>
+    </button>
+  </div>
+</div>

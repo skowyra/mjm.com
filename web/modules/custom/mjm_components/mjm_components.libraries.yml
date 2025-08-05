@@ -60,6 +60,17 @@ photo-gallery:
     - core/jquery
     - core/once
 
+kuula-tour:
+  version: 1.x
+  css:
+    theme:
+      css/kuula-tour.css: {}
+  js:
+    js/kuula-tour.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+
 site-header-override:
   version: 1.x
   css:

@@ -77,6 +77,20 @@ function mjm_components_theme() {
       ],
       'template' => 'mjm-photo-gallery',
     ],
+    'kuula_tour_block' => [
+      'variables' => [
+        'title' => NULL,
+        'tour_url' => NULL,
+        'embed_code' => NULL,
+        'width' => '100%',
+        'height' => '600px',
+        'description' => NULL,
+        'autoplay' => FALSE,
+        'show_info' => TRUE,
+        'show_controls' => TRUE,
+      ],
+      'template' => 'kuula-tour-block',
+    ],
   ];
 }
 
