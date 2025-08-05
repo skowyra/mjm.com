@@ -1,0 +1,69 @@
+mjm_components:
+  version: 1.x
+  css:
+    theme:
+      css/mjm-components.css: {}
+  dependencies:
+    - core/drupal
+
+font-optimization:
+  js:
+    js/font-optimization.js: {}
+  dependencies:
+    - core/drupal
+
+marzipano-core:
+  version: 1.x
+  js:
+    https://unpkg.com/marzipano@0.10.2/dist/marzipano.js: { type: external, minified: true }
+  css:
+    component:
+      css/marzipano-local.css: {}
+  dependencies:
+    - core/drupal
+
+marzipano-tour:
+  version: 1.x
+  css:
+    theme:
+      css/mjm-virtual-tour.css: {}
+  js:
+    js/mjm-virtual-tour.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/once
+    - mjm_components/marzipano-core
+
+marzipano-gallery:
+  version: 1.x
+  css:
+    theme:
+      css/mjm-image-gallery.css: {}
+  js:
+    js/mjm-image-gallery.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/once
+    - mjm_components/marzipano-core
+
+photo-gallery:
+  version: 1.x
+  css:
+    theme:
+      css/mjm-photo-gallery.css: {}
+  js:
+    js/mjm-photo-gallery.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/once
+
+site-header-override:
+  version: 1.x
+  css:
+    theme:
+      css/site-header-override.css: {}
+  dependencies:
+    - core/drupal

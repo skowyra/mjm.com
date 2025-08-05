@@ -1,0 +1,241 @@
+/* MJM Card Component Styles */
+
+/* Use system fonts for better performance */
+.mjm-card__title,
+.mjm-feature-card__title {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.mjm-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.mjm-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.mjm-card__image {
+  position: relative;
+  overflow: hidden;
+}
+
+.mjm-card__image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.mjm-card:hover .mjm-card__image img {
+  transform: scale(1.05);
+}
+
+.mjm-card__content {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.mjm-card__title {
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.mjm-card__title-link {
+  color: #2c3e50;
+  text-decoration: none;
+}
+
+.mjm-card__title-link:hover {
+  color: #3498db;
+}
+
+.mjm-card__description {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.mjm-card__action {
+  margin-top: auto;
+}
+
+.mjm-card__link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.mjm-card__link:hover {
+  background: #2980b9;
+  color: white;
+}
+
+/* Card Style Variations */
+.mjm-card--featured {
+  border: 2px solid #3498db;
+  box-shadow: 0 4px 16px rgba(52, 152, 219, 0.2);
+}
+
+.mjm-card--featured .mjm-card__title {
+  color: #3498db;
+}
+
+.mjm-card--minimal {
+  box-shadow: none;
+  border: 1px solid #e1e8ed;
+}
+
+.mjm-card--minimal:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* MJM Feature Card Component Styles */
+.mjm-feature-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mjm-feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.mjm-feature-card__icon {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mjm-feature-card__icon i {
+  font-size: 3rem;
+  color: #3498db;
+}
+
+.mjm-feature-card__icon img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.mjm-feature-card__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mjm-feature-card__title {
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.mjm-feature-card__title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.mjm-feature-card__title-link:hover {
+  color: #3498db;
+}
+
+.mjm-feature-card__description {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  flex: 1;
+}
+
+.mjm-feature-card__action {
+  margin-top: auto;
+}
+
+.mjm-feature-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.mjm-feature-card__link:hover {
+  color: #2980b9;
+}
+
+.mjm-feature-card__link i {
+  font-size: 0.875rem;
+  transition: transform 0.3s ease;
+}
+
+.mjm-feature-card__link:hover i {
+  transform: translateX(2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mjm-card__content,
+  .mjm-feature-card {
+    padding: 1rem;
+  }
+  
+  .mjm-card__image img {
+    height: 150px;
+  }
+  
+  .mjm-feature-card__icon i {
+    font-size: 2.5rem;
+  }
+  
+  .mjm-feature-card__icon img {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* Performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+  .mjm-card,
+  .mjm-feature-card,
+  .mjm-card__image img,
+  .mjm-feature-card__link i {
+    transition: none;
+  }
+  
+  .mjm-card:hover,
+  .mjm-feature-card:hover {
+    transform: none;
+  }
+}

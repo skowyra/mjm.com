@@ -1,0 +1,62 @@
+{#
+/**
+ * @file
+ * Template for MJM Virtual Tour component.
+ *
+ * Available variables:
+ * - tour_id: Unique ID for this tour instance
+ * - title: Tour title
+ * - description: Tour description
+ * - scenes: Array of 360° scenes
+ * - width: Tour width
+ * - height: Tour height
+ * - auto_rotate: Whether to auto-rotate
+ * - show_controls: Whether to show controls
+ */
+#}
+
+<div class="mjm-virtual-tour" id="{{ tour_id }}">
+  {% if title %}
+    <h3 class="mjm-virtual-tour__title">{{ title }}</h3>
+  {% endif %}
+  
+  {% if description %}
+    <div class="mjm-virtual-tour__description">{{ description }}</div>
+  {% endif %}
+  
+  <div class="mjm-virtual-tour__container" style="width: {{ width }}; height: {{ height }};">
+    <div class="mjm-virtual-tour__viewer" id="{{ tour_id }}-viewer"></div>
+    
+    {% if show_controls %}
+      <div class="mjm-virtual-tour__controls">
+        <div class="mjm-virtual-tour__scenes">
+          {% for scene in scenes %}
+            <button class="mjm-virtual-tour__scene-btn" data-scene="{{ scene.id }}">
+              {{ scene.name }}
+            </button>
+          {% endfor %}
+        </div>
+        
+        <div class="mjm-virtual-tour__buttons">
+          <button class="mjm-virtual-tour__btn mjm-virtual-tour__btn--zoom-in" title="Zoom In">
+            <i class="fas fa-search-plus"></i>
+          </button>
+          <button class="mjm-virtual-tour__btn mjm-virtual-tour__btn--zoom-out" title="Zoom Out">
+            <i class="fas fa-search-minus"></i>
+          </button>
+          <button class="mjm-virtual-tour__btn mjm-virtual-tour__btn--fullscreen" title="Fullscreen">
+            <i class="fas fa-expand"></i>
+          </button>
+          <button class="mjm-virtual-tour__btn mjm-virtual-tour__btn--auto-rotate" title="Auto Rotate">
+            <i class="fas fa-sync-alt"></i>
+          </button>
+        </div>
+      </div>
+    {% endif %}
+    
+    <div class="mjm-virtual-tour__loading">
+      <div class="mjm-virtual-tour__spinner"></div>
+      <p>Loading virtual tour...</p>
+    </div>
+  </div>
+</div>

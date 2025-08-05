@@ -1,0 +1,125 @@
+<?php
+
+/**
+ * @file
+ * Contains mjm_components.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function mjm_components_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the mjm_components module.
+    case 'help.page.mjm_components':
+      $output = '';
+      $output .= '<h3>' . \Drupal::translation()->translate('About') . '</h3>';
+      $output .= '<p>' . \Drupal::translation()->translate('Custom components for MJM Layout Builder including cards and virtual tours') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function mjm_components_theme() {
+  return [
+    'mjm_card_block' => [
+      'variables' => [
+        'title' => NULL,
+        'image' => NULL,
+        'link' => NULL,
+        'description' => NULL,
+        'card_style' => 'default',
+      ],
+      'template' => 'mjm-card-block',
+    ],
+    'mjm_feature_card_block' => [
+      'variables' => [
+        'title' => NULL,
+        'image' => NULL,
+        'link' => NULL,
+        'description' => NULL,
+        'icon' => NULL,
+      ],
+      'template' => 'mjm-feature-card-block',
+    ],
+    'mjm_virtual_tour' => [
+      'variables' => [
+        'tour_id' => NULL,
+        'title' => NULL,
+        'description' => NULL,
+        'scenes' => [],
+        'width' => '100%',
+        'height' => '500px',
+        'auto_rotate' => FALSE,
+        'show_controls' => TRUE,
+      ],
+      'template' => 'mjm-virtual-tour',
+    ],
+    'mjm_image_gallery' => [
+      'variables' => [
+        'gallery_id' => NULL,
+        'images' => [],
+        'config' => [],
+      ],
+      'template' => 'mjm-image-gallery',
+    ],
+    'mjm_photo_gallery' => [
+      'variables' => [
+        'gallery_id' => NULL,
+        'images' => [],
+        'config' => [],
+      ],
+      'template' => 'mjm-photo-gallery',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function mjm_components_preprocess_html(&$variables) {
+  // Add font optimization inline styles to head to prevent preload warnings
+  $variables['#attached']['html_head'][] = [
+    [
+      '#type' => 'html_tag',
+      '#tag' => 'style',
+      '#value' => '
+        /* Force immediate use of preloaded Lora font to prevent warnings */
+        body {
+          font-family: Lora, Georgia, "Times New Roman", serif;
+        }
+        
+        /* Apply Lora to content areas immediately */
+        .layout-content,
+        .mjm-card,
+        .mjm-feature-card,
+        h1, h2, h3, h4, h5, h6 {
+          font-family: Lora, Georgia, "Times New Roman", serif;
+        }
+      ',
+    ],
+    'mjm-font-optimization'
+  ];
+}
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function mjm_components_page_attachments_alter(array &$attachments) {
+  // Add font optimization JavaScript
+  $attachments['#attached']['library'][] = 'mjm_components/font-optimization';
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function mjm_components_page_attachments(array &$attachments) {
+  $attachments['#attached']['library'][] = 'mjm_components/mjm_components';
+  $attachments['#attached']['library'][] = 'mjm_components/site-header-override';
+}

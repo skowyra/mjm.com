@@ -1,0 +1,141 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Start DDEV",
+			"type": "shell",
+			"command": "ddev",
+			"args": ["start"],
+			"group": "build",
+			"problemMatcher": [],
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": false
+			}
+		},
+		{
+			"label": "Stop DDEV",
+			"type": "shell",
+			"command": "ddev",
+			"args": ["stop"],
+			"group": "build",
+			"problemMatcher": []
+		},
+		{
+			"label": "DDEV Restart",
+			"type": "shell",
+			"command": "ddev",
+			"args": ["restart"],
+			"group": "build",
+			"problemMatcher": []
+		},
+		{
+			"label": "Open Site in Browser",
+			"type": "shell",
+			"command": "ddev",
+			"args": ["launch"],
+			"group": "build",
+			"problemMatcher": []
+		},
+		{
+			"label": "Install Dependencies",
+			"type": "shell",
+			"command": "ddev",
+			"args": ["composer", "install"],
+			"group": "build",
+			"problemMatcher": []
+		},
+		{
+			"label": "Update Dependencies",
+			"type": "shell",
+			"command": "ddev",
+			"args": ["composer", "update"],
+			"group": "build",
+			"problemMatcher": []
+		},
+		{
+			"label": "Clear Drupal Cache",
+			"type": "shell",
+			"command": "ddev",
+			"args": ["drush", "cache:rebuild"],
+			"group": "build",
+			"problemMatcher": []
+		},
+		{
+			"label": "Export Configuration",
+			"type": "shell",
+			"command": "ddev",
+			"args": ["drush", "config:export"],
+			"group": "build",
+			"problemMatcher": []
+		},
+		{
+			"label": "Import Configuration",
+			"type": "shell",
+			"command": "ddev",
+			"args": ["drush", "config:import"],
+			"group": "build",
+			"problemMatcher": []
+		},
+		{
+			"label": "Database Export",
+			"type": "shell",
+			"command": "ddev",
+			"args": ["export-db", "--file=database-backup.sql.gz"],
+			"group": "build",
+			"problemMatcher": []
+		},
+		{
+			"label": "Database Import",
+			"type": "shell",
+			"command": "ddev",
+			"args": ["import-db", "--file=database-backup.sql.gz"],
+			"group": "build",
+			"problemMatcher": []
+		},
+		{
+			"label": "SSH into Container",
+			"type": "shell",
+			"command": "ddev",
+			"args": ["ssh"],
+			"group": "build",
+			"problemMatcher": []
+		},
+		{
+			"label": "Generate Sample Content",
+			"type": "shell",
+			"command": "ddev",
+			"args": ["drush", "devel-generate:content", "10"],
+			"group": "build",
+			"problemMatcher": []
+		},
+		{
+			"label": "Generate Sample Users",
+			"type": "shell",
+			"command": "ddev",
+			"args": ["drush", "devel-generate:users", "5"],
+			"group": "build",
+			"problemMatcher": []
+		},
+		{
+			"label": "Rebuild Pathauto Aliases",
+			"type": "shell",
+			"command": "ddev",
+			"args": ["drush", "pathauto:aliases-generate", "--all"],
+			"group": "build",
+			"problemMatcher": []
+		},
+		{
+			"label": "Show Drupal Status",
+			"type": "shell",
+			"command": "ddev",
+			"args": ["drush", "status"],
+			"group": "build",
+			"problemMatcher": []
+		}
+	]
+}

@@ -1,0 +1,13 @@
+/**
+ * @file
+ * Site header z-index override for MJM Components compatibility.
+ */
+
+/* Override Olivero theme site header z-index to allow lightboxes to appear above it */
+.site-header {
+  z-index: 1 !important;
+}
+
+.site-header__initial {
+  z-index: 2 !important;
+}

@@ -1,0 +1,12 @@
+name: MJM Components
+type: module
+description: Custom Layout Builder components for mjm.com
+core_version_requirement: ^11
+package: Custom
+dependencies:
+  - drupal:layout_builder
+  - drupal:block
+  - drupal:field
+  - drupal:file
+  - drupal:image
+  - drupal:link

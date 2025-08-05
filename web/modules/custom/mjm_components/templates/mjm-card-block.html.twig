@@ -1,0 +1,53 @@
+{#
+/**
+ * @file
+ * Template for MJM Card Block.
+ *
+ * Available variables:
+ * - title: The card title.
+ * - image: The card image render array.
+ * - link: The card link URL object.
+ * - description: The card description.
+ * - card_style: The card style (default, featured, minimal).
+ */
+#}
+
+<div class="mjm-card mjm-card--{{ card_style }}">
+  {% if image %}
+    <div class="mjm-card__image">
+      {% if link %}
+        <a href="{{ link.toString() }}" class="mjm-card__image-link">
+          {{ image }}
+        </a>
+      {% else %}
+        {{ image }}
+      {% endif %}
+    </div>
+  {% endif %}
+
+  <div class="mjm-card__content">
+    {% if title %}
+      <h3 class="mjm-card__title">
+        {% if link %}
+          <a href="{{ link.toString() }}" class="mjm-card__title-link">{{ title }}</a>
+        {% else %}
+          {{ title }}
+        {% endif %}
+      </h3>
+    {% endif %}
+
+    {% if description %}
+      <div class="mjm-card__description">
+        {{ description|nl2br }}
+      </div>
+    {% endif %}
+
+    {% if link %}
+      <div class="mjm-card__action">
+        <a href="{{ link.toString() }}" class="mjm-card__link btn btn--primary">
+          Learn More
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</div>

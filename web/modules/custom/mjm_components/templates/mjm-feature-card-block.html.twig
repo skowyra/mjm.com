@@ -1,0 +1,57 @@
+{#
+/**
+ * @file
+ * Template for MJM Feature Card Block.
+ *
+ * Available variables:
+ * - title: The feature title.
+ * - image: The feature image render array.
+ * - icon: The feature icon class.
+ * - link: The feature link URL object.
+ * - description: The feature description.
+ */
+#}
+
+<div class="mjm-feature-card">
+  {% if icon or image %}
+    <div class="mjm-feature-card__icon">
+      {% if icon %}
+        <i class="{{ icon }}" aria-hidden="true"></i>
+      {% elseif image %}
+        {% if link %}
+          <a href="{{ link.toString() }}" class="mjm-feature-card__icon-link">
+            {{ image }}
+          </a>
+        {% else %}
+          {{ image }}
+        {% endif %}
+      {% endif %}
+    </div>
+  {% endif %}
+
+  <div class="mjm-feature-card__content">
+    {% if title %}
+      <h3 class="mjm-feature-card__title">
+        {% if link %}
+          <a href="{{ link.toString() }}" class="mjm-feature-card__title-link">{{ title }}</a>
+        {% else %}
+          {{ title }}
+        {% endif %}
+      </h3>
+    {% endif %}
+
+    {% if description %}
+      <div class="mjm-feature-card__description">
+        {{ description|nl2br }}
+      </div>
+    {% endif %}
+
+    {% if link %}
+      <div class="mjm-feature-card__action">
+        <a href="{{ link.toString() }}" class="mjm-feature-card__link">
+          Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</div>

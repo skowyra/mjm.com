@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * Font optimization template to preload fonts properly.
+ */
+#}
+<style>
+  /* Override Olivero font loading behavior */
+  @font-face {
+    font-family: 'Lora';
+    font-display: swap;
+    font-weight: 400 700;
+  }
+  
+  /* Ensure we use the font quickly to avoid warnings */
+  .layout-content,
+  .mjm-card,
+  .mjm-feature-card {
+    font-family: Lora, Georgia, 'Times New Roman', serif;
+  }
+</style>

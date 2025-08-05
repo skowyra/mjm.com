@@ -1,0 +1,144 @@
+{#
+/**
+ * @file
+ * Template for MJM Photo Gallery component.
+ *
+ * Variables:
+ * - gallery_id: Unique ID for this gallery instance
+ * - images: Array of photo data
+ * - config: Gallery configuration
+ */
+#}
+
+<div class="mjm-photo-gallery mjm-photo-gallery--{{ config.layout|default('grid') }}" id="{{ gallery_id }}">
+  {% if config.gallery_title %}
+    <h3 class="mjm-photo-gallery__title">{{ config.gallery_title }}</h3>
+  {% endif %}
+
+  <div class="mjm-photo-gallery__container" data-columns="{{ config.columns|default(3) }}">
+    {% for image in images %}
+      <div class="mjm-photo-gallery__item" data-index="{{ loop.index0 }}">
+        <div class="mjm-photo-gallery__image-wrapper">
+          <img src="{{ image.thumbnail }}" 
+               data-full="{{ image.url }}"
+               alt="{{ image.title }}" 
+               class="mjm-photo-gallery__image"
+               loading="lazy">
+          
+          {% if config.enable_lightbox %}
+            <div class="mjm-photo-gallery__overlay">
+              <button class="mjm-photo-gallery__view-btn" title="View full size">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          {% endif %}
+        </div>
+
+        {% if config.show_captions and (image.title or image.description) %}
+          <div class="mjm-photo-gallery__caption">
+            {% if image.title %}
+              <h4 class="mjm-photo-gallery__caption-title">{{ image.title }}</h4>
+            {% endif %}
+            {% if image.description %}
+              <p class="mjm-photo-gallery__caption-description">{{ image.description }}</p>
+            {% endif %}
+            {% if image.photographer or image.date_taken or image.location %}
+              <div class="mjm-photo-gallery__caption-meta">
+                {% if image.photographer %}
+                  <span class="mjm-photo-gallery__photographer">📸 {{ image.photographer }}</span>
+                {% endif %}
+                {% if image.date_taken %}
+                  <span class="mjm-photo-gallery__date">📅 {{ image.date_taken }}</span>
+                {% endif %}
+                {% if image.location %}
+                  <span class="mjm-photo-gallery__location">📍 {{ image.location }}</span>
+                {% endif %}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+
+  {# Carousel controls (for carousel layout) #}
+  {% if config.layout == 'carousel' %}
+    <div class="mjm-photo-gallery__carousel-controls">
+      <button class="mjm-photo-gallery__carousel-btn mjm-photo-gallery__carousel-btn--prev" title="Previous photo">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="mjm-photo-gallery__carousel-btn mjm-photo-gallery__carousel-btn--next" title="Next photo">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+    
+    <div class="mjm-photo-gallery__carousel-indicators">
+      {% for image in images %}
+        <button class="mjm-photo-gallery__indicator{% if loop.first %} active{% endif %}" 
+                data-index="{{ loop.index0 }}" 
+                title="Photo {{ loop.index }}"></button>
+      {% endfor %}
+    </div>
+
+    {% if config.auto_play %}
+      <div class="mjm-photo-gallery__carousel-play">
+        <button class="mjm-photo-gallery__play-btn" title="Play/Pause slideshow">
+          <i class="fas fa-play"></i>
+        </button>
+      </div>
+    {% endif %}
+  {% endif %}
+
+  {# Lightbox modal #}
+  {% if config.enable_lightbox %}
+    <div class="mjm-photo-gallery__lightbox">
+      <div class="mjm-photo-gallery__lightbox-overlay"></div>
+      <div class="mjm-photo-gallery__lightbox-content">
+        <button class="mjm-photo-gallery__lightbox-close" title="Close lightbox">
+          <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="mjm-photo-gallery__lightbox-image-container">
+          <img src="" alt="" class="mjm-photo-gallery__lightbox-image">
+          
+          <button class="mjm-photo-gallery__lightbox-prev" title="Previous photo">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="mjm-photo-gallery__lightbox-next" title="Next photo">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="mjm-photo-gallery__lightbox-info">
+          <h4 class="mjm-photo-gallery__lightbox-title"></h4>
+          <p class="mjm-photo-gallery__lightbox-description"></p>
+          <div class="mjm-photo-gallery__lightbox-meta"></div>
+        </div>
+
+        {% if config.show_thumbnails %}
+          <div class="mjm-photo-gallery__lightbox-thumbnails">
+            {% for image in images %}
+              <button class="mjm-photo-gallery__lightbox-thumb{% if loop.first %} active{% endif %}" 
+                      data-index="{{ loop.index0 }}" 
+                      title="{{ image.title }}">
+                <img src="{{ image.thumbnail }}" alt="{{ image.title }}" loading="lazy">
+              </button>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <div class="mjm-photo-gallery__lightbox-counter">
+          <span class="mjm-photo-gallery__lightbox-current">1</span> / <span class="mjm-photo-gallery__lightbox-total">{{ images|length }}</span>
+        </div>
+
+        {% if config.auto_play %}
+          <div class="mjm-photo-gallery__lightbox-controls">
+            <button class="mjm-photo-gallery__lightbox-play" title="Play/Pause slideshow">
+              <i class="fas fa-play"></i>
+            </button>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+</div>
