@@ -1,0 +1,22 @@
+uuid: 923de9d1-408b-441e-b73a-eb8452b7cc25
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - mjm_theme
+_core:
+  default_config_hash: VShtwe72J2j41BJzApoNbs8l554EpngM5RTObxM7yiw
+id: mjm_theme_breadcrumbs
+theme: mjm_theme
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

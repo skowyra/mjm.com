@@ -1,0 +1,22 @@
+uuid: d2b87322-65dc-440e-9a5c-282e2137339c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - mjm_theme
+_core:
+  default_config_hash: 1o0W13wt232YmsDYiRA5xtlFq0L2WNS7FmIVbBeuhIY
+id: mjm_theme_content
+theme: mjm_theme
+region: content
+weight: -1
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

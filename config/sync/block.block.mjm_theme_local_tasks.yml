@@ -1,0 +1,22 @@
+uuid: 60089c36-c483-443b-8db5-df0cf17370dd
+langcode: en
+status: true
+dependencies:
+  theme:
+    - mjm_theme
+_core:
+  default_config_hash: yX9o6NcntZnXRDfbJoHY1pJwuXlumW44m5AMs347NN4
+id: mjm_theme_local_tasks
+theme: mjm_theme
+region: content
+weight: -4
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

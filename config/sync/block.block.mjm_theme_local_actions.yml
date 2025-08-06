@@ -1,0 +1,20 @@
+uuid: b5b423e6-17af-4883-a44c-f4c4b01f3648
+langcode: en
+status: true
+dependencies:
+  theme:
+    - mjm_theme
+_core:
+  default_config_hash: MBqG1B5mr5-fPSCDyTR6z2zVTRxZ10XeS_pAw6C7za4
+id: mjm_theme_local_actions
+theme: mjm_theme
+region: content
+weight: -2
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

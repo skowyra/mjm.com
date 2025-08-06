@@ -1,0 +1,22 @@
+uuid: 18d4f2fc-2c51-4a88-821d-0851ec49d9d9
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - mjm_theme
+_core:
+  default_config_hash: S0Y16qIQfKiOEzWlddOGk3u_BKwAruAheA8VVFfGbLc
+id: mjm_theme_help
+theme: mjm_theme
+region: content
+weight: -3
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }
