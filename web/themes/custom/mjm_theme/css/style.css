@@ -1,0 +1,56 @@
+/**
+ * @file
+ * Main stylesheet for MJM Theme.
+ */
+
+/* Import fonts first */
+@import url('fonts.css');
+
+/* Custom styling for MJM components */
+.mjm-quicksand {
+  font-family: var(--font-quicksand);
+}
+
+/* Hero sections with Quicksand */
+.hero-title,
+.page-title,
+.site-title {
+  font-family: var(--font-quicksand);
+  font-weight: 600;
+}
+
+/* Ensure your gallery components use Quicksand */
+.mjm-photo-gallery__title,
+.mjm-card-block__title,
+.mjm-virtual-tour__title {
+  font-family: var(--font-quicksand);
+  font-weight: 600;
+}
+
+.mjm-photo-gallery__caption-title,
+.mjm-card-block__description,
+.mjm-virtual-tour__description {
+  font-family: var(--font-quicksand);
+  font-weight: 500;
+}
+
+/* Bootstrap overrides for better font integration */
+.navbar-brand {
+  font-family: var(--font-quicksand) !important;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.btn {
+  font-family: var(--font-quicksand);
+  font-weight: 500;
+  letter-spacing: 0.025em;
+}
+
+/* Form elements */
+.form-control,
+.form-select,
+.form-check-label {
+  font-family: var(--font-quicksand);
+  font-weight: 400;
+}

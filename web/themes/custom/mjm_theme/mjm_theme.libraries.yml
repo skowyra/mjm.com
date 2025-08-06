@@ -1,0 +1,13 @@
+fonts:
+  css:
+    theme:
+      css/fonts.css: {}
+  dependencies:
+    - core/drupal
+
+global-styling:
+  css:
+    theme:
+      css/style.css: {}
+  dependencies:
+    - mjm_theme/fonts
