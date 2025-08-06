@@ -37,8 +37,18 @@
 /* Bootstrap overrides for better font integration */
 .navbar-brand {
   font-family: var(--font-quicksand) !important;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: 300;
+}
+
+/* Site slogan styling */
+.site-slogan {
+  font-family: var(--font-quicksand);
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: #6c757d;
+  margin-top: 0.25rem;
+  display: block;
 }
 
 .btn {
@@ -135,8 +145,20 @@
 .navbar-brand {
   font-size: 1.4rem;
   margin-right: auto;
+  padding-left: 8px;
   padding-top: 2rem;
   font-weight: 300;
+}
+
+.navbar-brand .site-title {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 300;
+}
+
+.navbar-brand .site-slogan {
+  display: block;
+  font-size: 1.1rem;
 }
 
 .navbar-nav {
@@ -149,12 +171,20 @@
     font-size: 1.6rem;
     font-weight: 300;
   }
+  
+  .site-slogan {
+    font-size: 1.25rem;
+  }
 }
 
 @media (min-width: 992px) {
   .navbar-brand {
     font-size: 1.8rem;
     font-weight: 300;
+  }
+  
+  .site-slogan {
+    font-size: 1.4rem;
   }
 }
 
