@@ -16,7 +16,7 @@
 .page-title,
 .site-title {
   font-family: var(--font-quicksand);
-  font-weight: 600;
+  font-weight: 300;
 }
 
 /* Ensure your gallery components use Quicksand */
@@ -38,7 +38,7 @@
 .navbar-brand {
   font-family: var(--font-quicksand) !important;
   font-size: 1.8rem;
-  font-weight: 600;
+  font-weight: 300;
 }
 
 .btn {
@@ -135,6 +135,8 @@
 .navbar-brand {
   font-size: 1.4rem;
   margin-right: auto;
+  padding-top: 2rem;
+  font-weight: 300;
 }
 
 .navbar-nav {
@@ -145,12 +147,14 @@
 @media (min-width: 768px) {
   .navbar-brand {
     font-size: 1.6rem;
+    font-weight: 300;
   }
 }
 
 @media (min-width: 992px) {
   .navbar-brand {
     font-size: 1.8rem;
+    font-weight: 300;
   }
 }
 
