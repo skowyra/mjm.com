@@ -61,14 +61,6 @@ function mjm_components_theme() {
       ],
       'template' => 'mjm-virtual-tour',
     ],
-    'mjm_image_gallery' => [
-      'variables' => [
-        'gallery_id' => NULL,
-        'images' => [],
-        'config' => [],
-      ],
-      'template' => 'mjm-image-gallery',
-    ],
     'mjm_photo_gallery' => [
       'variables' => [
         'gallery_id' => NULL,
